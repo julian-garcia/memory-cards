@@ -1,0 +1,13 @@
+@import '@material/button/mdc-button';
+
+.show-form-button, .card-form__button {
+  overflow: hidden;
+  height: 50px;
+  @include mdc-button-ink-color(white);
+  @include mdc-ripple-surface;
+  @include mdc-ripple-radius-bounded;
+  @include mdc-states-base-color(black);
+  @include mdc-states-hover-opacity(.3);
+  @include mdc-states-focus-opacity(0);
+  @include mdc-states-press-opacity(.5);
+}

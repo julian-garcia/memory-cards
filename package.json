@@ -1,0 +1,46 @@
+{
+  "name": "memory-cards",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "autoprefixer": "^9.7.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "nojs": "^0.1.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@material/button": "^4.0.0",
+    "@material/card": "^4.0.0",
+    "@material/floating-label": "^4.0.0",
+    "@material/layout-grid": "^4.0.0",
+    "@material/notched-outline": "^4.0.0",
+    "@material/ripple": "^4.0.0",
+    "@material/textfield": "^4.0.0",
+    "@material/typography": "^4.0.0",
+    "material-design-icons": "^3.0.1"
+  }
+}

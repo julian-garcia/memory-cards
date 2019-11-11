@@ -1,0 +1,63 @@
+@import "@material/textfield/mdc-text-field";
+@import "@material/floating-label/mdc-floating-label";
+
+.mdc-text-field--textarea {
+  border-radius: 16px 16px 0 0;
+  @include mdc-text-field-focused-outline-color($mdc-theme-primary);
+  @include mdc-text-field-fill-color(whitesmoke);
+}
+
+.mdc-text-field {
+  border-radius: 16px 16px 0 0;
+}
+
+.mdc-floating-label {
+  @include mdc-floating-label-fill-color(whitesmoke)
+}
+
+.card-form {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.5);
+  padding: 10% 0 0;
+  margin-left: -1rem;
+  box-sizing: border-box;
+
+  & &__outline .mdc-notched-outline__leading {
+    border-radius: 16px 0 0 0;
+  }
+
+  & &__outline .mdc-notched-outline__trailing {
+    border-radius: 0 16px 0 0;
+  }
+
+  &__show {
+    display: block;
+  }
+
+  &__title {
+    border-radius: 16px 16px 0 0;
+  }
+
+  &__field, &__button {
+    display: flex;
+    width: 90vw;
+    max-width: 400px;
+    margin: 0 auto 1rem;
+  }
+
+  &__button.button {
+    display: block;
+    margin: auto;
+  }
+
+  & &__description-label.mdc-floating-label--float-above {
+    padding: 3px 12px 0;
+    margin: 0;
+    font-weight: bold;
+  }
+}

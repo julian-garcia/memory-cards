@@ -1,0 +1,21 @@
+
+@import "@material/card/mdc-card";
+@import "@material/layout-grid/mdc-layout-grid";
+
+.card-grid {
+  margin-top: 1rem;  
+  padding: 0;
+}
+
+.item {
+  background: whitesmoke;
+  min-height: 100px;
+
+  &__text-section {
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  &__title, &__copy {
+    margin: 0;
+  }
+}
