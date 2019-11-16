@@ -18,4 +18,8 @@
   &__title, &__copy {
     margin: 0;
   }
+
+  &__copy.hidden {
+    visibility: hidden;
+  }
 }

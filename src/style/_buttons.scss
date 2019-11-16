@@ -11,3 +11,9 @@
   @include mdc-states-focus-opacity(0);
   @include mdc-states-press-opacity(.5);
 }
+
+.button {
+  &__show, &__hide {
+    min-width: 40px;
+  }
+}
