@@ -15,8 +15,24 @@
     padding: 1rem 1rem 0 1rem;
   }
 
+  &__text-section:nth-child(2) {
+    background: lightgray;
+  }
+
   &__title, &__copy {
     margin: 0;
+  }
+
+  &__title {
+    height: 3rem;
+    margin-bottom: .5rem;
+    overflow-y: hidden;
+  }
+
+  &__copy {
+    height: 6rem;
+    margin-bottom: 1rem;
+    overflow-y: hidden;
   }
 
   &__copy.hidden {

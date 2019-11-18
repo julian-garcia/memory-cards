@@ -5,6 +5,7 @@ export const uiModule = (function() {
   const cardButton = document.querySelector('.card-form__button');
   const cardTitle = document.querySelector('.card-form__title');
   const cardDescription = document.querySelector('.card-form__description');
+  const cardFormButton = document.querySelector('.show-form-button');
 
   function generateCard(title, description, index) {
     if (title && description) {
@@ -31,32 +32,49 @@ export const uiModule = (function() {
           <button class="mdc-button mdc-card__action button__hide">
             <i class="material-icons icon__hide">visibility_off</i>
           </button>
+          <button class="mdc-button mdc-card__action button__delete">
+            <i class="material-icons icon__delete">delete</i>
+          </button>
         </div>`;
       gridCell.appendChild(cardElement);
       cardsElement.appendChild(gridCell);  
-      storageService.saveLocalStorage(cardList())  
+      storageService.saveLocalStorage(cardList());
+    }
+  }
+
+  function getParentCardElement(targetElement) {
+    if (/button__.+/.test(targetElement.className)) {
+      return targetElement.parentElement.parentElement;
+    } else if (/icon__.+/.test(targetElement.className)) {
+      return targetElement.parentElement.parentElement.parentElement;
+    } else { 
+      return; 
     }
   }
 
   function toggleContent(e) {
     const targetElement = e.target;
     const cards = storageService.retrieveLocalStorage();
-    let cardElement;
 
-    if (/button__.+/.test(targetElement.className)) {
-      cardElement = targetElement.parentElement.parentElement;
-    } else if (/icon__.+/.test(targetElement.className)) {
-      cardElement = targetElement.parentElement.parentElement.parentElement;
-    } else { 
-      return; 
-    }
+    let cardElement = getParentCardElement(targetElement);
 
     if (/.+__hide/.test(targetElement.className)) {
       cardElement.querySelector('.item__title').textContent = 'Hidden';
       cardElement.querySelector('.item__copy').classList.add('hidden');
-    } else {
+    } else if (/.+__show/.test(targetElement.className)) {
       cardElement.querySelector('.item__title').textContent = cards[parseInt(cardElement.getAttribute('data-index'))].title;
       cardElement.querySelector('.item__copy').classList.remove('hidden');
+    }
+  }
+
+  function deleteCard(e) {
+    const targetElement = e.target;
+    let cardElement = getParentCardElement(targetElement);
+
+    if (/.+__delete/.test(targetElement.className)) {
+      storageService.removeFromLocalStorage(parseInt(cardElement.getAttribute('data-index')));
+      cardsElement.innerHTML = '';
+      refreshContent();
     }
   }
 
@@ -81,9 +99,18 @@ export const uiModule = (function() {
 
   return {
     addCardListener: function() {
-      const cards = storageService.retrieveLocalStorage();
       cardButton.addEventListener('click', function() {
+        const cards = storageService.retrieveLocalStorage() || [];
         generateCard(cardTitle.value, cardDescription.value, cards.length);
+      });
+    },
+    initialiseCardForm: function() {
+      cardFormButton.addEventListener('click', function() {
+        setTimeout(function() {
+          cardTitle.value = '';
+          cardDescription.value = '';
+          cardTitle.focus();
+        }, 0);
       });
     },
     toggleContent: function(e) {
@@ -91,8 +118,10 @@ export const uiModule = (function() {
         toggleContent(e);
       });
     },
-    cardList: function() {
-      cardButton.addEventListener('click', cardList);
+    deleteCard: function(e) {
+      cardsElement.addEventListener('click', function(e) {
+        deleteCard(e);
+      });
     },
     refreshContent: function() {
       document.addEventListener('DOMContentLoaded', refreshContent);

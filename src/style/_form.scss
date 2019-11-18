@@ -17,14 +17,13 @@
 
 .card-form {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: rgba(0,0,0,.5);
   padding: 10% 0 0;
-  margin-left: -1rem;
   box-sizing: border-box;
 
   & &__outline .mdc-notched-outline__leading {
