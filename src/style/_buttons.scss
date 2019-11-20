@@ -1,6 +1,6 @@
 @import '@material/button/mdc-button';
 
-.show-form-button, .card-form__button {
+.card-form__button {
   overflow: hidden;
   height: 50px;
   @include mdc-button-ink-color(white);
@@ -12,8 +12,16 @@
   @include mdc-states-press-opacity(.5);
 }
 
-.button {
-  &__show, &__hide {
+.item {
+  & button {
     min-width: 40px;
+  }
+}
+
+.dashboard-button {
+  font-size: 3rem;
+  
+  &:hover {
+    cursor: pointer;
   }
 }

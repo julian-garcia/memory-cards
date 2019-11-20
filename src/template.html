@@ -8,8 +8,12 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="mdc-typography--headline2 site-title">Memory Cards</h1>
-    <button class="show-form-button mdc-button mdc-button--raised button" no-js on-click-add-class=".card-form card-form__show">Add a card</button>
+    <h1 class="mdc-typography--headline2 site-title">Memory Cards &#129504;</h1>
+    <i class="material-icons dashboard-button show-form-button" no-js on-click-add-class=".card-form card-form__show">add_circle</i>
+    <i class="material-icons dashboard-button toggle-all-cards">visibility_off</i>
+    <i class="material-icons dashboard-button shuffle-cards">shuffle</i>
+    <i class="material-icons dashboard-button save-cards">arrow_downward</i>
+    <i class="material-icons dashboard-button import-cards">arrow_upward</i>
     <div class="mdc-layout-grid card-grid">
       <div class="mdc-layout-grid__inner cards"></div>
     </div>
@@ -29,7 +33,8 @@
           <div class="mdc-notched-outline__trailing"></div>
         </div>
       </div>
-      <button type="button" class="card-form__button mdc-button mdc-button--raised button" no-js on-click-remove-class=".card-form card-form__show">Add</button>
+      <button type="button" class="card-form__button mdc-button mdc-button--raised add-button" no-js on-click-remove-class=".card-form card-form__show">Add card</button>
+      <button type="button" class="card-form__button mdc-button mdc-button--raised edit-button" no-js on-click-remove-class=".card-form card-form__show">Apply changes</button>
     </form>
   </div>
 </body>
